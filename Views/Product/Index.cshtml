@@ -1,0 +1,173 @@
+﻿@model marble.ViewModels.ProductsPageModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string contentUrl = baseUrl + "Content/Upload/";
+}
+
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+    .line_1-en {
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        font-size: larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+    .rlt {
+        direction: ltr;
+        text-align: left;
+    }
+    .getItCenter{
+            text-align: -webkit-center;
+    }
+</style>
+<main>
+    @if (Request.Cookies["culture"].Value == "ar")
+    {
+        <div class="row rtl ">
+            <aside class="col-xs line_1">
+                <h1>@Resources.Global.Documents</h1>
+                <div id="desktop-filter">
+                    <span>@Resources.Global.Documents_type</span>
+                    <ul id="menu-products" class="menu">
+                        @foreach (var item in Model.productCategories)
+                        {
+                            <li id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761"><a href="~/Product?categoryId=@item.Category_id">@item.Name</a></li>
+                        }
+                    </ul>
+    
+    
+                </div>
+            </aside>
+            <div class="col-xl">
+                <div class="row ">
+                    @foreach (var item in Model.products)
+                    {
+                        <div class="col-s getItCenter">
+                            <a href="~/Product/Details?id=@item.Id">
+                                @if (item.Cover_Url != null)
+                                {
+                                    <img style="width:252px;height:300px;object-fit: cover;border-radius: 3rem;" title="@item.Name" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@contentUrl@item.Cover_Url" />
+                                }
+                                else
+                                {
+                                    <img style="width:252px;height:300px" title="@item.Name" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="#" />
+                                }
+                            </a>
+                            <a class="caption" style="text-align: center;border-radius: 70rem; box-shadow: 0px 0px 10px 1px #ff9405;" href="/Product/Details?id=@item.Id">@item.Name</a>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+            <aside id="mobile-filter" class="col-s line_1" style="direction:rtl;text-align:right">
+                <div class="dropdown_list" style="direction:rtl;text-align:right">
+
+                    <span class="dropdown" style="direction:rtl;text-align:right">تصنيف الوثائق</span>
+                    <ul id="menu-products-1" class="drop" style="direction:rtl;text-align:right">
+                        @foreach (var item in Model.productCategories)
+                        {
+                            <li style="direction:rtl;text-align:right" id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761"><a href="~/Product?categoryId=@item.Category_id" >@item.Name</a></li>
+                        }
+
+                    </ul>
+                </div>
+    
+    
+   
+            </aside>
+        </div>
+    }
+    @if (Request.Cookies["culture"].Value == "en")
+    {
+        <div class="row ltr">
+            <aside class="col-xs line_1-en">
+                <h1>@Resources.Global.Documents</h1>
+                <div id="desktop-filter">
+                    <span>@Resources.Global.Documents_type</span>
+                    <ul id="menu-products" class="menu">
+                        @foreach (var item in Model.productCategories)
+                        {
+                            <li id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761"><a href="~/Product?categoryId=@item.Category_id">@item.Name_En</a></li>
+                        }
+                    </ul>
+
+                </div>
+            </aside>
+            <div class="col-xl">
+                <div class="row ">
+                    @foreach (var item in Model.products)
+                    {
+                        <div class="col-s getItCenter">
+                            <a href="~/Product/Details?id=@item.Id">
+                                @if (item.Cover_Url != null)
+                                {
+                                    <img style="width:252px;height:300px;object-fit: cover;border-radius: 3rem;" title="@item.Name_En" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@contentUrl@item.Cover_Url" />
+                                }
+                                else
+                                {
+                                    <img style="width:252px;height:300px" title="@item.Name_En" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="#" />
+                                }
+                            </a>
+                            <a class="caption" href="~/Product/Details?id=@item.Id" style="text-align: center;border-radius: 70rem; box-shadow: 0px 0px 10px 1px #ff9405;">@item.Name_En</a>
+                        </div>
+                    }
+
+
+                </div>
+
+            </div>
+            <aside id="mobile-filter" class="col-s line_1-en ltr">
+                <div class="dropdown_list ltr">
+                  
+<span class="dropdown ltr" >Documents Category</span>
+                    
+                  
+                    <ul id="menu-products-1" class="drop">
+                        @foreach (var item in Model.productCategories)
+                        {
+                            <li id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761 rtl"><a href="~/Product?categoryId=@item.Category_id">@item.Name_En</a></li>
+                        }
+
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    }
+
+</main>

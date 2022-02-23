@@ -1,0 +1,108 @@
+﻿@model marble.ViewModels.ProductsPageModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+}
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+
+    .line_1-en{
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        font-size: larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+    .ltr {
+        direction: ltr;
+        text-align: left;
+    }
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+     .getItCenter{
+            text-align: -webkit-center;
+    }
+</style>
+@if (Request.Cookies["culture"].Value == "ar")
+{
+    <div class="container rtl line_1">
+        <h2 class="section-title ">@Resources.Global.Other_photos</h2>
+        <figure class="wp-block-gallery columns-3 is-cropped">
+            <ul class="blocks-gallery-grid getItCenter">
+                @foreach (var item in Model.productGallery)
+                {
+                    <li class='blocks-gallery-item'><figure><a href='@baseUrl@item.Url' data-fancybox="gallery" rel="nofollow"><img style="margin-left:2px;width:255px;height:300px;object-fit: cover;border-radius: 3rem;" srcset="@baseUrl@item.Url" data-srcset="@baseUrl@item.Url" data-src="@baseUrl@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@item.Url" /></a></figure></li>
+                }
+    
+
+            </ul>
+
+     
+        </figure>
+    </div>
+	       <div class="col-12 m-lg-5" style="margin:10px">
+                @foreach (var item in Model.products)
+                {
+                  <p style="text-align: right;border: 2px solid antiquewhite;margin: 3rem;padding: 1rem;box-shadow: 0px 0px 1px 2px antiquewhite;border-radius: 2rem;">  @item.Details </p>
+                }
+            </div>
+}
+@if (Request.Cookies["culture"].Value == "en")
+{
+    <div class="container ltr line_1-en">
+        <h2 class="section-title ">@Resources.Global.Other_photos</h2>
+        <figure class="wp-block-gallery columns-3 is-cropped">
+            <ul class="blocks-gallery-grid getItCenter">
+                @foreach (var item in Model.productGallery)
+                {
+                    <li class='blocks-gallery-item'><figure><a href='@baseUrl@item.Url' data-fancybox="gallery" rel="nofollow"><img style="margin-left:2px;width:255px;height:300px;object-fit: cover;border-radius: 3rem;" srcset="@baseUrl@item.Url" data-srcset="@baseUrl@item.Url" data-src="@baseUrl@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@item.Url" /></a></figure></li>
+                }
+
+
+            </ul>
+
+     
+        </figure>
+    </div>
+	       <div class="col-12" style="margin:10px">
+                @foreach (var item in Model.products)
+                {
+					   <p style="text-align:left;border: 2px solid antiquewhite;margin: 3rem;padding: 1rem;box-shadow: 0px 0px 1px 2px antiquewhite;border-radius: 2rem;">  @item.Details_En </p>
+                }
+            </div>
+}
+
+

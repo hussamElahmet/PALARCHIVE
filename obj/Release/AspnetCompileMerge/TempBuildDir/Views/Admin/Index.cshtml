@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+}
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <h2 class="page-title">
+                <?php echo $title; ?>
+            </h2>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            @*<div class="card-header">
+                <h3 class="card-title">En Çok Ziyaret Edilen Sayfalar</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart1"></div>
+            </div>*@
+            <img src="~/Content/Upload/_logo.png"/>
+        </div>
+    </div>
+
+    @*<div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">En Çok Ziyaretçi Gelen Şehirler</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart3"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">En Çok Ziyaretçi Gelen Ülkeler</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart2"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Aylara Göre Ziyaretçi Sayısı</h3>
+            </div>
+            <div class="card-body">
+                <div id="chart4"></div>
+            </div>
+        </div>
+
+    </div>*@
+
+</div>
+
+
+@*<?php $sPageData = json_encode(convertDataToChartForm($sPage->data, "Sayfa", "Görüntülenme Sayısı")); ?>
+    <?php $sCountryData = json_encode(convertDataToChartForm($sCountry->data, "Ülke", "Görüntülenme Sayısı")); ?>
+    <?php $sCityData = json_encode(convertDataToChartForm($sCity->data, "Şehir", "Görüntülenme Sayısı")); ?>
+    <?php $sDateData = json_encode(convertDataToChartForm($sDate->data, "Yıl-Ay", "Görüntülenme Sayısı")); ?>*@
+@{
+
+}
+<script type="text/javascript">
+
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawChart1);
+    google.charts.setOnLoadCallback(drawChart2);
+    google.charts.setOnLoadCallback(drawChart3);
+    google.charts.setOnLoadCallback(drawChart4);
+
+    function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            height: 400,
+            bar: { groupWidth: "95%" },
+            legend: { position: "none" },
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('chart1'));
+        materialChart.draw(data, options);
+    }
+
+    function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            height: 400,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart2'));
+        chart.draw(data, options);
+    }
+
+    function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            height: 400,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart3'));
+        chart.draw(data, options);
+    }
+
+    function drawChart4() {
+        var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004', 1000, 400],
+            ['2005', 1170, 460],
+            ['2006', 660, 1120],
+            ['2007', 1030, 540]
+        ]);
+
+        var options = {
+            height: 400,
+            bar: { groupWidth: "95%" },
+            legend: { position: "none" },
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('chart4'));
+        materialChart.draw(data, options);
+    }
+
+
+
+</script>

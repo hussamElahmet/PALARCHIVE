@@ -1,0 +1,132 @@
+﻿@model marble.ViewModels.AboutPageModel
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+}
+
+
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+    .line_1-en {
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        font-size: larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+    ltr {
+        direction: ltr;
+        text-align: left;
+    }
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+</style>
+<main>
+    @if (Request.Cookies["culture"].Value == "ar")
+    {<div class="row rtl">
+            <aside class="col-xs line_1">
+                <h1>@Resources.Global.AboutUs</h1>
+                <div id="desktop-filter">
+                    <ul id="menu-corporate" class="accordion-content">
+                        <li style="text-align:right" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/About/About/" aria-current="page">@Resources.Global.AboutUs</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/">@Resources.Global.Home</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">@Resources.Global.Documents</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Contact/Contact"> @Resources.Global.ContactUs</a></li>
+
+                    </ul>
+                </div>
+            </aside>
+            <div class="col-xl rtl ">
+                <div class="row">
+                    <div class="col-full text-font">
+                        <img width="1200" height="675" alt="" loading="lazy" data-src="@baseUrl@Model.aboutInfo.Url" data-sizes="(max-width: 1200px) 100vw, 1200px" class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" src="@baseUrl@Model.aboutInfo.Url" />
+                        <br />
+                        <p style="text-align: right;" class="line_1">@Model.aboutInfo.Details</p>
+                    </div>
+                    <aside id="mobile-filter" class="col-s line_1">
+                        <div class="dropdown_list dropdown_full">
+                            <span class="dropdown">الصفحات</span>
+                            <ul id="menu-corporate-1" class="drop">
+                                <li style="text-align:right" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/About/About/" aria-current="page">من نحن</a></li>
+                                <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/">الصفحة الرئيسية</a></li>
+                                <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">الوثائق</a></li>
+                                <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Contact/Contact">تواصل معنا</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    }
+    @if (Request.Cookies["culture"].Value == "en")
+    {
+        <div class="row ltr">
+            <aside class="col-xs line_1-en">
+                <h1>@Resources.Global.AboutUs</h1>
+                <div id="desktop-filter">
+                    <ul id="menu-corporate" class="accordion-content">
+                        <li style="text-align:left" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/About/About/" aria-current="page">@Resources.Global.AboutUs</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/">@Resources.Global.Home</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">@Resources.Global.Documents</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Contact/Contact"> @Resources.Global.ContactUs</a></li>
+
+                    </ul>
+                </div>
+            </aside>
+            <div class="col-xl ltr ">
+                <div class="row">
+                    <div class="col-full text-font">
+                        <img width="1200" height="675" alt="" loading="lazy" data-src="@baseUrl@Model.aboutInfo.Url" data-sizes="(max-width: 1200px) 100vw, 1200px" class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyload" src="@baseUrl@Model.aboutInfo.Url" />
+                        <br />
+                        <p style="text-align: left;" class="line_1-en">@Model.aboutInfo.Details_En</p>
+                    </div>
+                    <aside id="mobile-filter" class="col-s line_1-en">
+                        <div class="dropdown_list dropdown_full">
+                            <span class="dropdown">@Resources.Global.Pages</span>
+                            <ul id="menu-corporate-1" class="drop">
+                                <li style="text-align:left" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/About/About/" aria-current="page">@Resources.Global.AboutUs</a></li>
+                                <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/">@Resources.Global.Home</a></li>
+                                <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">@Resources.Global.Documents</a></li>
+                                <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Contact/Contact"> @Resources.Global.ContactUs</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    }
+
+</main>

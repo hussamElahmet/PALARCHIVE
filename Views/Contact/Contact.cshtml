@@ -1,0 +1,223 @@
+﻿@model marble.ViewModels.ContactPageModel
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+    .header-font-bold-en {
+        font-family: 'Almarai', sans-serif;
+        text-align: left;
+        direction: ltr;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+
+    .line_1-en{
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        font-size: larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+    .ltr{
+         
+        direction: ltr;
+     text-align: left;
+    
+    }
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+</style>
+<main>
+
+
+    @if (Request.Cookies["culture"].Value == "ar")
+    {
+        <div class="row rtl">
+            <aside class="col-xs line_1">
+                <h1>@Resources.Global.ContactUs</h1>
+                <div id="desktop-filter">
+                    <ul id="menu-corporate" class="accordion-content">
+                        <li style="text-align:right" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/Contact/Contact/" aria-current="page"> @Resources.Global.ContactUs</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/"> @Resources.Global.Home</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">@Resources.Global.Documents</a></li>
+                        <li style="text-align:right" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/About/About/">@Resources.Global.AboutUs</a></li>
+
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="col-xl">
+                <div class="row">
+                    <div class="col-full">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4965.204048196944!2d32.86256010053696!3d39.899803150182024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f978c4a4dcb%3A0xfce43d85632ea7ac!2sGaziosmanpa%C5%9Fa%2C%2006700%20%C3%87ankaya%2FAnkara!5e0!3m2!1sen!2str!4v1645396141951!5m2!1sen!2str" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        @*<section class="call-to-action  header-font">
+                                <div class="row">
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">العنوان</span>
+                                        <p>@Model.ContactInfo.Country</p>
+                                    </div>
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">الايميل</span>
+                                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e78b8889838889a793828a8a82958a8695858b82c984888a">@Model.ContactInfo.Email</a></p>
+                                    </div>
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">اتصل بنا</span>
+                                        <p>@Model.ContactInfo.Phone</p>
+                                    </div>
+                                </div>
+
+                            </section>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl header-font-bold" style="direction:rtl;text-align:right;">
+                <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate" action="~/Contact/contactAdd">
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="name" class="col-form-label">@Resources.Global.Name</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="email" class="col-form-label">@Resources.Global.Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="message" class="col-form-label">@Resources.Global.Message</label>
+<textarea class="form-control" name="message" id="message" cols="30" rows="7" style="margin-top: 0px; margin-bottom: 0px; height: 254px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="@Resources.Global.Send" style=" background-color: black;" class="btn btn-primary rounded-0 py-2 px-4">
+                            <span class="submitting"></span>
+                        </div>
+                    </div>
+                </form>
+                @*<div id="form-message-warning mt-4"></div>
+                    <div id="form-message-success">
+                        Your message was sent, thank you!
+                    </div>*@
+            </div>
+        </div>
+    }
+
+
+    @if (Request.Cookies["culture"].Value == "en")
+    {
+        <div class="row ltr">
+            <aside class="col-xs line_1-en">
+                <h1>@Resources.Global.ContactUs</h1>
+                <div id="desktop-filter">
+                    <ul id="menu-corporate" class="accordion-content">
+                        <li style="text-align:left" id="menu-item-9772" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4488 current_page_item menu-item-9772"><a href="~/Contact/Contact/" aria-current="page"> @Resources.Global.ContactUs</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/"> @Resources.Global.Home</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/Product/">@Resources.Global.Documents</a></li>
+                        <li style="text-align: left" id="menu-item-10170" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10170"><a href="~/About/About/">@Resources.Global.AboutUs</a></li>
+
+                    </ul>
+                </div>
+            </aside>
+
+            <div class="col-xl">
+                <div class="row">
+                    <div class="col-full">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4965.204048196944!2d32.86256010053696!3d39.899803150182024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d34f978c4a4dcb%3A0xfce43d85632ea7ac!2sGaziosmanpa%C5%9Fa%2C%2006700%20%C3%87ankaya%2FAnkara!5e0!3m2!1sen!2str!4v1645396141951!5m2!1sen!2str" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        @*<section class="call-to-action  header-font">
+                                <div class="row">
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">العنوان</span>
+                                        <p>@Model.ContactInfo.Country</p>
+                                    </div>
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">الايميل</span>
+                                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e78b8889838889a793828a8a82958a8695858b82c984888a">@Model.ContactInfo.Email</a></p>
+                                    </div>
+                                    <div class="col-s mb-1">
+                                        <span class="cta-title">اتصل بنا</span>
+                                        <p>@Model.ContactInfo.Phone</p>
+                                    </div>
+                                </div>
+
+                            </section>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl header-font-bold-en" style="direction:ltr;text-align:left;">
+                <form class="mb-5" method="post" id="contactForm" name="contactForm" novalidate="novalidate" action="~/Contact/contactAdd">
+                    <div class="row" style="text-align:left;direction:ltr">
+                        <div class="col-md-12 form-group">
+                            <label for="name" class="col-form-label">@Resources.Global.Name</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="email" class="col-form-label">@Resources.Global.Email</label>
+                            <input type="text" class="form-control" name="email" id="email">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 form-group">
+                            <label for="message" class="col-form-label">@Resources.Global.Message</label>
+<textarea class="form-control" name="message" id="message" cols="30" rows="7" style="margin-top: 0px; margin-bottom: 0px; height: 254px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="@Resources.Global.Send" style=" background-color: black;" class="btn btn-primary rounded-0 py-2 px-4">
+                            <span class="submitting"></span>
+                        </div>
+                    </div>
+                </form>
+                @*<div id="form-message-warning mt-4"></div>
+                    <div id="form-message-success">
+                        Your message was sent, thank you!
+                    </div>*@
+            </div>
+        </div>
+    }
+
+
+</main>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

@@ -1,0 +1,563 @@
+﻿@model marble.ViewModels.HomePageModel
+@{
+    ViewBag.Title = "Home Page";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string siteUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string ContentUrl = baseUrl + "Content/Upload/";
+}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> 
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align:right;
+        direction:rtl;
+    }
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size:larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    .line_2-en{
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    .rtl{
+        direction:rtl;
+        text-align:right;
+
+    }
+    .ltr {
+        direction: ltr;
+        text-align: left;
+    }
+    .header-font-en {
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+        direction: ltr;
+    }
+
+    .footer-font-en {
+        font-family: 'Cairo', sans-serif;
+        text-align: left;
+    }
+
+    .header-font-bold-en {
+        font-family: 'Almarai', sans-serif;
+        text-align: left;
+        direction: ltr;
+    }
+    .banner-images {
+        width: 150px;
+        height: auto;
+        object-fit: contain;
+        margin: 20px;
+        border: 0px antiquewhite solid;
+        border-radius: 10px;
+        box-shadow:0px 0px 3px 5px #ff9200;
+    }
+    @@media (max-width: 575.98px) {
+        .numbersOfDocuments{
+        justify-content: space-between;
+        place-content: center;
+    } 
+    }
+
+    @@media (min-width: 576px) and (max-width: 767.98px) {
+        .numbersOfDocuments {
+            place-content: center;
+            justify-content: space-between;
+        } 
+}
+
+    @@media (min-width: 768px) and (max-width: 991.98px) {
+        .numbersOfDocuments
+
+    {
+        justify-content: space-between;
+        place-content: center;
+    } }
+
+    @@media (min-width: 992px) and (max-width: 1199.98px) {
+        .numbersOfDocuments
+
+    {
+        justify-content: space-between;
+    } }
+
+    @@media (min-width: 1200px) {
+        .numbersOfDocuments
+
+    {
+        justify-content: space-between;
+    } }
+
+
+
+    .counter-text-style {
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: 'Cairo';
+        color: #080808;
+        font-weight: bold;
+        box-shadow: 0px 57px 1px 20px #cccccc;
+        width: 190px;
+    }
+    .counter-text-style-without-shadow {
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: 'Cairo';
+        color: #080808;
+        font-weight: bold;
+        width: 190px;
+    }
+
+
+
+.category_image{
+    height: 235px;
+}
+
+
+
+
+
+
+
+.modal__img {max-width:33%;height:auto;display:block;}
+.modal{
+  max-width:700px;
+  width:85%;
+  position: fixed;
+  top:50%;
+  background-color: rgba(0,0,0,0.3);
+  left:50%;
+  transform: translate(-50%,-50%);
+  border-radius: 5px;
+  background:#ffffff;
+  display: none;
+  margin-top:2rem;
+}
+.modal.show{display:block}
+#close {cursor:pointer;color:black;position:absolute;top:0;font-size:25px;right:0;padding:1rem;margin-right: 10px;}
+.modal__title{font-size: 1.5rem;     text-align: right;
+    font-family: ui-monospace;    white-space: nowrap;
+            font-family: 'Cairo', sans-serif;
+
+}
+.modal__title span{display: block;font-weight: 400;    margin-top: 1rem;}
+.modal__paragraph{    font-size: 16px;
+    font-weight: 400;
+    text-align: right;
+          font-family: 'Cairo', sans-serif;
+  margin-top: revert;}
+.modal__button{
+  background-color:#000000;
+  border:none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius:5px;
+  box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+  transition: 0.3s background-color ease-in-out;
+                font-family: 'Cairo', sans-serif;
+  float: right;
+}
+.modal__button:hover{background-color:#0a9372;}
+main{text-align: center;}
+.modal__container{
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+@@media only screen and (min-width: 768px){
+  .modal__container {
+    flex-direction: row;
+    padding: 2rem;
+    text-align: left;
+  }
+  .modal__img{max-width:33%}
+}
+@@media (max-width:500px)
+{
+    .modal__title {
+    font-size: 2rem;
+    position:fixed;
+  } 
+  .modal__title span{
+      display:none;
+  }
+}
+@@media only screen and (max-width: 500px){
+  .modal__title {
+    font-size: 2rem;
+  }
+  .modal__img{max-width:33%}
+}
+
+
+
+
+    <%-- @@media(max-width: 500px) {
+       ul#jsa li div#slider_image.slide {
+            background-size: 37rem 38rem;
+            background-repeat: no-repeat;
+        }
+
+    } --%>
+
+
+
+</style>
+
+<div class="slider" id="sliderglb" data-width="100">
+    <ul id="jsa">
+        @foreach (var item in Model.SlidersList)
+        {
+            <li><div class="slide"  id="slider_image" style="background-image:url(@ContentUrl@item.Url);left:auto"></div></li>
+
+        }
+
+    </ul>
+</div>
+
+<ul class="marquee gray line_1">
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive    - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+    <li>@Resources.Global.pal_archive  - <span>@Resources.Global.documentation_center</span></li>
+
+
+</ul>
+<main>
+    @if (Request.Cookies["culture"].Value == "ar")
+    {<h3 class="section-title header-font">@Resources.Global.Home_archive_categories</h3>
+
+    <section id="products" class="row rtl">
+
+        @foreach (var item in Model.productCategories)
+        {<div class="col-xs mb-1 rtl">
+
+                <a href="~/Product?categoryId=@item.Category_id">
+                    <img alt="Marble" title=" Marble" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload category_image" src="@ContentUrl@item.Url"> <div class="overlay">
+                        <div class="text header-font-bold rtl"><h2>@item.Name</h2></div>
+                    </div>
+                </a>
+            </div>
+        }
+    </section>
+}
+    @if (Request.Cookies["culture"].Value == "en")
+    {<h3 class="section-title header-font-en">@Resources.Global.Home_archive_categories</h3>
+
+    <section id="products" class="row ltr">
+
+        @foreach (var item in Model.productCategories)
+        {<div class="col-xs mb-1 ltr">
+
+                <a href="~/Product?categoryId=@item.Category_id">
+                    <img alt="Marble" title=" Marble" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload category_image" src="@ContentUrl@item.Url"> <div class="overlay">
+                        <div class="text header-font-bold ltr"><h2>@item.Name_En</h2></div>
+                    </div>
+                </a>
+            </div>
+        }
+    </section>
+}
+
+
+@*<section id="UK" class="call-to-action">
+        <div class="row">
+            <div class="col-m mb-1">
+                <span class="cta-title">العنوان</span>
+                <p>26 St. Cross Street London - EC1N 8UH</p>
+            </div>
+            <div class="col-xs mb-1">
+                <span class="cta-title">Call Us</span>
+                <p>+44 7384 298048</p>
+            </div>
+            <div class="col-xs">
+                <span class="cta-title">Write Us</span>
+                <p><a href="/cdn-cgi/l/email-protection#7a1615141e15143a0e1f17171f08171b0818161f54191517"><span class="__cf_email__" data-cfemail="e28e8d8c868d8ca296878f8f87908f8390808e87cc818d8f">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+    </section>*@
+@*<section id="US" class="call-to-action">
+        <div class="videoWrapper">
+            <iframe width="560" height="349" frameborder="0" allowfullscreen data-src="https://my.matterport.com/show/?m=uX5YT3mzyHk" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe>
+        </div>
+        <div class="row">
+            <div class="col-m mb-1">
+                <span class="cta-title">Atlanta</span>
+                <p>3084 Roswell Rd. NW, Atlanta - GA 30305</p>
+            </div>
+            <div class="col-xs mb-1">
+                <span class="cta-title">Call Us</span>
+                <p>+1 678 568 2828</p>
+            </div>
+            <div class="col-xs">
+                <span class="cta-title">Write Us</span>
+                <p><a href="/cdn-cgi/l/email-protection#2357464e4e46516357464e4e46510d5650"><span class="__cf_email__" data-cfemail="8ffbeae2e2eafdcffbeae2e2eafda1fafc">[email&#160;protected]</span></a></p>
+            </div>
+        </div>
+    </section>*@
+@*<section id="TR" class="call-to-action header-font">
+        <div class="row">
+            <div class="col-m mb-1">
+                <span class="cta-title">العنوان</span>
+                <p>@Model.ContactInfo.Country</p>
+            </div>
+            <div class="col-xs mb-1">
+                <span class="cta-title">اتصل بنا</span>
+                <p>@Model.ContactInfo.Phone</p>
+            </div>
+            <div class="col-xs">
+                <span class="cta-title">الايميل</span>
+                <p><a href="/cdn-cgi/l/email-protection#7a1615141e15143a0e1f17171f08171b0818161f54191517"><span class="__cf_email__" data-cfemail="e28e8d8c868d8ca296878f8f87908f8390808e87cc818d8f">@Model.ContactInfo.Email</span></a></p>
+            </div>
+        </div>
+    </section>*@
+ @if (Request.Cookies["culture"].Value == "ar")
+    {
+    <div class="row numbersOfDocuments">
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid " style=" width: 200px; height:200px;margin-top:2rem;"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5NppdcrOCSZPLsp7DuXFCutUlO0SrDUBPXPsEqIrG01O2ULxS_tOAkgASgEtUtKnK8Xc&usqp=CAU">
+            <p class="counter-text-style">١٣٥.٠٠٠  </p>
+            <p class="counter-text-style-without-shadow"> @Resources.Global.photo_document</p>
+        </div>
+
+
+        <div class="col-3 d-flex flex-column  justify-con	tent-center">
+            <img class="img-fluid "  style=" width: 200px; height:200px;margin-top:2rem;"  src="https://www.annahar.com/library/old/storage/attachments/712/dome3a_536532.jpg">
+            <p class="counter-text-style">٢٤٠٠٠ </p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Recording_hour_for_Palestinian_radios</p>
+        </div>
+
+
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid"  style=" width: 200px; height:200px;margin-top:2rem;" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Filastin_1936_issue.png">
+            <p class="counter-text-style">٢٣٠٠  </p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Palestinian_newspaper_pages</p>
+        </div>
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid " style=" width: 200px; height:200px;margin-top:2rem;" src="https://www.alaraby.co.uk/sites/default/files/styles/meduim_16_9/public/2021-03/%D9%85%D8%AE%D8%B7%D9%88%D8%B7%D8%A9.jpg?h=d1cb525d&itok=ecxX210w">
+            <p class="counter-text-style">  ١٢٠٠ </p>
+            <p class="counter-text-style-without-shadow"> @Resources.Global.book_and_manuscript</p>
+        </div>
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid" style=" width: 200px;height:200px ;margin-top:2rem;" src="https://i0.wp.com/turkpidya.com/wp-content/uploads/2021/05/%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D8%B3-%D9%81%D9%8A-%D8%B9%D8%B5%D8%B1-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D8%B9%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9.jpg?resize=850%2C550&ssl=1">
+            <p class="counter-text-style">٤٧٠   </p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Map</p>
+        </div>
+    </div>
+    }
+
+     @if (Request.Cookies["culture"].Value == "en")
+    {
+         <div class="row numbersOfDocuments">
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid " style=" width: 200px; height:200px;margin-top:2rem;"  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5NppdcrOCSZPLsp7DuXFCutUlO0SrDUBPXPsEqIrG01O2ULxS_tOAkgASgEtUtKnK8Xc&usqp=CAU">
+            <p class="counter-text-style">135000  </p>
+            <p class="counter-text-style-without-shadow"> @Resources.Global.photo_document</p>
+        </div>
+
+
+        <div class="col-3 d-flex flex-column  justify-con	tent-center">
+            <img class="img-fluid "  style=" width: 200px; height:200px;margin-top:2rem;"  src="https://www.annahar.com/library/old/storage/attachments/712/dome3a_536532.jpg">
+            <p class="counter-text-style">24000 </p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Recording_hour_for_Palestinian_radios</p>
+        </div>
+
+
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid"  style=" width: 200px; height:200px;margin-top:2rem;" src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Filastin_1936_issue.png">
+            <p class="counter-text-style">2300  </p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Palestinian_newspaper_pages</p>
+        </div>
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid " style=" width: 200px; height:200px;margin-top:2rem;" src="https://www.alaraby.co.uk/sites/default/files/styles/meduim_16_9/public/2021-03/%D9%85%D8%AE%D8%B7%D9%88%D8%B7%D8%A9.jpg?h=d1cb525d&itok=ecxX210w">
+            <p class="counter-text-style">  1200 </p>
+            <p class="counter-text-style-without-shadow"> @Resources.Global.book_and_manuscript</p>
+        </div>
+        <div class="col-3 d-flex flex-column  justify-content-center">
+            <img class="img-fluid" style=" width: 200px;height:200px;margin-top:2rem; " src="https://i0.wp.com/turkpidya.com/wp-content/uploads/2021/05/%D8%AE%D8%B1%D9%8A%D8%B7%D8%A9-%D8%A7%D9%84%D9%82%D8%AF%D8%B3-%D9%81%D9%8A-%D8%B9%D8%B5%D8%B1-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D8%A9-%D8%A7%D9%84%D8%B9%D8%AB%D9%85%D8%A7%D9%86%D9%8A%D8%A9.jpg?resize=850%2C550&ssl=1">
+            <p class="counter-text-style">470</p>
+            <p class="counter-text-style-without-shadow">@Resources.Global.Map</p>
+        </div>
+    </div>
+    }
+    
+    @*<section id="projects" class="row">
+            @foreach (var item in Model.projectCategories)
+            {
+                <div class="col-xs mb-1">
+                    <a href="~/Project?categoryId=@item.Category_id">
+                        <img alt="Houses" title=" Houses" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@item.Url"> <div class="overlay">
+                            <div class="text">@item.Name</div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+
+        </section>*@
+    @if (Request.Cookies["culture"].Value == "ar")
+    {
+        <h3 class="section-title header-font">@Resources.Global.Some_Dodcuments</h3>
+
+        <section id="inspirations" class="row rtl">
+            @{ int i = 0;}
+            @foreach (var item in Model.products)
+            {
+
+                if (i < 6)
+                {
+                    i++;
+                    <div class="col-s line_2">
+                        <a href="~/Product/Details?id=@item.Id">
+                            @if (item.Cover_Url != null)
+                            {
+                              
+                                <ul class="blocks-gallery-grid">
+                                    <li class='blocks-gallery-item'><figure><a href="~/Product/Details?id=@item.Id"><img style="width:348px;height:416px;object-fit:cover;border-radius:3rem;" srcset="@ContentUrl@item.Cover_Url" data-srcset="@ContentUrl@item.Cover_Url" data-src="@ContentUrl@item.Cover_Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@ContentUrl@item.Cover_Url" /></a></figure></li>
+                                </ul>
+                            }
+                    
+                        </a>
+						
+                        <a class="caption" style="text-align: center; border-radius: 70rem;box-shadow: 0px 0px 10px 1px #ff9405;"  href="~/Product/Details?id=@item.Id">@item.Name</a>
+                    </div>
+                }
+            }
+        </section>
+    }
+    @if (Request.Cookies["culture"].Value == "en")
+    {
+        <h3 class="section-title header-font-en">@Resources.Global.Some_Dodcuments</h3>
+
+        <section id="inspirations" class="row ltr">
+            @{ int i = 0;}
+            @foreach (var item in Model.products)
+            {
+
+                if (i < 6)
+                {
+                    i++;
+                    <div class="col-s line_2-en">
+                        <a href="~/Product/Details?id=@item.Id">
+                            @if (item.Cover_Url != null)
+                            {
+
+                                <ul class="blocks-gallery-grid">
+                                    <li class='blocks-gallery-item'><figure><a href='@ContentUrl@item.Cover_Url' data-fancybox="gallery" rel="nofollow"><img style="width:348px;height:416px;;object-fit:cover;border-radius:3rem;" srcset="@ContentUrl@item.Cover_Url" data-srcset="@ContentUrl@item.Cover_Url" data-src="@ContentUrl@item.Cover_Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@ContentUrl@item.Cover_Url" /></a></figure></li>
+                                </ul>
+                            }
+                   
+                        </a>
+                        <a class="caption" style="text-align: center; border-radius: 70rem;box-shadow: 0px 0px 10px 1px #ff9405;" href="~/Product/Details?id=@item.Id">@item.Name_En</a>
+                    </div>
+                }
+            }
+        </section>
+    }
+
+
+
+
+
+
+
+
+</main>
+  @if (Request.Cookies["culture"].Value == "ar")
+  {<ul class="footer-font marquee">
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href="#"><strong>القدس</strong></a></li>
+    <li><a href="#"><strong>الشام</strong></a></li>
+    <li><a href="#"><strong>الحجاز</strong></a></li>
+    <li><a href="#">الخليل</a></li>
+    <li><a href="#">نابلس</a></li>
+    <li><a href="#">بيت لحم</a></li>
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href="#"><strong>القدس</strong></a></li>
+    <li><a href="#"><strong>الشام</strong></a></li>
+    <li><a href="#"><strong>حيفا</strong></a></li>
+    <li><a href="#">الخليل</a></li>
+    <li><a href="#">نابلس</a></li>
+    <li><a href="#">بيت لحم</a></li>
+	    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href="#"><strong>القدس</strong></a></li>
+    <li><a href="#"><strong>الشام</strong></a></li>
+    <li><a href="#"><strong>حيفا</strong></a></li>
+    <li><a href="#">الخليل</a></li>
+    <li><a href="#">نابلس</a></li>
+    <li><a href="#">بيت لحم</a></li>
+</ul>
+  }
+  
+  @if (Request.Cookies["culture"].Value == "en")
+  {<ul class="footer-font marquee">
+      <li><a href="#"><strong>Palestine</strong></a></li>
+    <li><a href="#"><strong>Jerusalem</strong></a></li>
+    <li><a href="#"><strong>Sham</strong></a></li>
+    <li><a href="#"><strong>Hejaz</strong></a></li>
+    <li><a href="#">Haifa </a></li>
+    <li><a href="#">Nablus</a></li>
+    <li><a href="#">Akka</a></li>
+</ul>
+  }
+
+  @if (Request.Cookies["culture"].Value == "ar")
+  {
+  <div class="modal" id="modal">
+  <div class='modal__container'>
+    <img class="modal__img" src="https://drive.google.com/uc?export=view&id=1hsqRgrdpr5T673KZLyUmHVoLWcv159MC">
+    <div class="modal__content">
+      <h3 class="modal__title"> <span>وثائق ملكيات الاراضي الخاصة في فلسطين</span><h3>
+       <p class="modal__paragraph">ضمن عملنا التوثيقي نعمل منذ 15 عاما على استخراج وثائق وصكوك ملكيات الاراضي للعائلات الفلسطينية في الداخل الفلسطيني كالقدس والضفة الغربية وغزة.
+من خلال توكيلات من المعنيين نحن نقوم بمتابعة البحث عن ملكية الارض واستصدار الاوراق المطلوبة وتصديقها من الجهات الرسمية لدى دائرة الطابو ووزارة الخارجية وتسليمها للمعنيين،حيث يتواجد مقر ارشيف الطابو في مدينة انقرا،الذي يحتوي على كافة سجلات ودفاتر الطابو العثماني لفلسطين من قرى ومدن مختلفة حتى عام 1918</p>
+        <button id="closee" class="modal__button">استمر</button>
+    </div>
+        <i id="close" class="fas fa-times"></i>
+  </div>
+  </div>
+}
+
+
+  <script>
+  const closeBtn = document.getElementById('close');
+  const closee = document.getElementById('closee');
+  
+const modalMenu = document.getElementById('modal');
+
+setTimeout(()=>{
+  modalMenu.classList.add('show');
+},3000);
+
+closeBtn.addEventListener('click',()=>{modalMenu.classList.remove('show')})
+closee.addEventListener('click',()=>{modalMenu.classList.remove('show')})
+  </script>

@@ -1,0 +1,132 @@
+﻿@model marble.ViewModels.ProductsPageModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+</style>
+<!-- /.row -->
+<div class="row rtl">
+    <div class="col-md-12">
+        <div class="card card-default">
+            <div class="container-fluid ">
+                <form method="post" action="~/Admin/Add" enctype="multipart/form-data">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title line_2">معلومات الوثيقة</h3>
+
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card-body header-font">
+                            <div class="form-group">
+                                <label for="inputName">اسم الوثيقة</label>
+                                <input type="text" id="productName" name="productName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDescription">شرح عن الوثيقة</label>
+                                <textarea id="productDesc" name="productDesc" class="form-control" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputStatus">التصنيفات</label>
+                                <select id="categoryNo" name="categoryNo" class="form-control custom-select" required>
+                                    @foreach (var item in Model.productCategories)
+                                    {
+                                        <option value="@item.Category_id">@item.Name</option>
+                                    }
+                                </select>
+                            </div>
+                            @* files *@
+                            <div class="col-md-12">
+                                <div class="card card-default">
+
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.files, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.TextBoxFor(model => model.files, "", new { @type = "file", @multiple = "multiple" })
+                                                @Html.ValidationMessageFor(model => model.files, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        @*<div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+            @ViewBag.UploadStatus
+        </div>*@
+
+                                        @*@if (ViewBag.state == true)
+                                        {
+                                            <div class="alert alert-success alert-dismissible">
+                                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                                <h5><i class="icon fas fa-check"></i> Alert!</h5>
+                                                Success alert preview. This alert is dismissable.
+                                            </div>
+                                        }
+                                        @if (ViewBag.state == false)
+                                        {
+                                    <div class="alert alert-danger alert-dismissible">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                                        Warning alert preview. This alert is dismissable.
+                                    </div>
+                                        }*@
+                                    </div>
+                                    <!-- /.card-body -->
+
+                                </div>
+                                <button type="submit" class="btn btn-success" style="width:inherit">أرسل</button>
+                                <!-- /.card -->
+                            </div>
+                            @* --------------------------- *@
+                        </div>
+
+                        <!-- /.card-body -->
+                    </div>
+                </form>  <!-- /.card -->
+            </div>
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

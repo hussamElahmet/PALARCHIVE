@@ -1,0 +1,258 @@
+﻿@model marble.ViewModels.HomePageModel
+@{
+    ViewBag.Title = "Home Page";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string siteUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string ContentUrl = baseUrl + "Content/Upload/";
+}
+
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align:right;
+        direction:rtl;
+    }
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size:larger;
+    }
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+    .rtl{
+        direction:rtl;
+        text-align:right;
+
+    }
+
+</style>
+
+<div class="slider" id="sliderglb" data-width="100">
+    <ul id="jsa">
+        @foreach (var item in Model.SlidersList)
+        {
+            <li><div class="slide" style="background-image:url(@ContentUrl@item.Url);left:auto"></div></li>
+
+        }
+
+    </ul>
+</div>
+
+<ul class="marquee gray line_1">
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+    <li>الأرشيف الفلسطيني  - <span>مركز التوثيق</span></li>
+
+
+</ul>
+<main>
+    <h3 class="section-title header-font">تصنيفات الوثائق </h3>
+    <section id="products" class="row rtl">
+
+        @foreach (var item in Model.productCategories)
+        {<div class="col-xs mb-1 rtl">
+
+                <a href="https://localhost:44382/Product?categoryId=@item.Category_id">
+                    <img alt="Marble" title=" Marble" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@ContentUrl@item.Url"> <div class="overlay">
+                        <div class="text header-font-bold rtl"><h2>@item.Name</h2></div>
+                    </div>
+                </a>
+            </div>
+        }
+    </section>
+    @*<section id="UK" class="call-to-action">
+            <div class="row">
+                <div class="col-m mb-1">
+                    <span class="cta-title">العنوان</span>
+                    <p>26 St. Cross Street London - EC1N 8UH</p>
+                </div>
+                <div class="col-xs mb-1">
+                    <span class="cta-title">Call Us</span>
+                    <p>+44 7384 298048</p>
+                </div>
+                <div class="col-xs">
+                    <span class="cta-title">Write Us</span>
+                    <p><a href="/cdn-cgi/l/email-protection#7a1615141e15143a0e1f17171f08171b0818161f54191517"><span class="__cf_email__" data-cfemail="e28e8d8c868d8ca296878f8f87908f8390808e87cc818d8f">[email&#160;protected]</span></a></p>
+                </div>
+            </div>
+        </section>*@
+    @*<section id="US" class="call-to-action">
+            <div class="videoWrapper">
+                <iframe width="560" height="349" frameborder="0" allowfullscreen data-src="https://my.matterport.com/show/?m=uX5YT3mzyHk" class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></iframe>
+            </div>
+            <div class="row">
+                <div class="col-m mb-1">
+                    <span class="cta-title">Atlanta</span>
+                    <p>3084 Roswell Rd. NW, Atlanta - GA 30305</p>
+                </div>
+                <div class="col-xs mb-1">
+                    <span class="cta-title">Call Us</span>
+                    <p>+1 678 568 2828</p>
+                </div>
+                <div class="col-xs">
+                    <span class="cta-title">Write Us</span>
+                    <p><a href="/cdn-cgi/l/email-protection#2357464e4e46516357464e4e46510d5650"><span class="__cf_email__" data-cfemail="8ffbeae2e2eafdcffbeae2e2eafda1fafc">[email&#160;protected]</span></a></p>
+                </div>
+            </div>
+        </section>*@
+    <section id="TR" class="call-to-action header-font">
+        <div class="row">
+            <div class="col-m mb-1">
+                <span class="cta-title">العنوان</span>
+                <p>@Model.ContactInfo.Country</p>
+            </div>
+            <div class="col-xs mb-1">
+                <span class="cta-title">اتصل بنا</span>
+                <p>@Model.ContactInfo.Phone</p>
+            </div>
+            <div class="col-xs">
+                <span class="cta-title">الايميل</span>
+                <p><a href="/cdn-cgi/l/email-protection#7a1615141e15143a0e1f17171f08171b0818161f54191517"><span class="__cf_email__" data-cfemail="e28e8d8c868d8ca296878f8f87908f8390808e87cc818d8f">@Model.ContactInfo.Email</span></a></p>
+            </div>
+        </div>
+    </section>
+    @*<section id="projects" class="row">
+            @foreach (var item in Model.projectCategories)
+            {
+                <div class="col-xs mb-1">
+                    <a href="https://localhost:44382/Project?categoryId=@item.Category_id">
+                        <img alt="Houses" title=" Houses" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@item.Url"> <div class="overlay">
+                            <div class="text">@item.Name</div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+
+        </section>*@
+    <h3 class="section-title header-font">عينات من بعض الوثائق</h3>
+
+    <section id="inspirations" class="row rtl">
+     @{ int i = 0;}
+        @foreach (var item in Model.products)
+        {
+
+            if(i<6)
+            {
+                i++;
+            <div class="col-s line_2">
+                <a href="https://localhost:44382/Product/Details?id=@item.Id">
+                    @if (item.Cover_Url != null)
+                    {
+                        @*<img style="width:348px;height:416px" title="@item.Name" class="lazyload" src="@ContentUrl@item.Cover_Url" />*@
+                        <ul class="blocks-gallery-grid">
+                            <li class='blocks-gallery-item'><figure><a href='@ContentUrl@item.Cover_Url' data-fancybox="gallery" rel="nofollow"><img style="width:348px;height:416px" srcset="@ContentUrl@item.Cover_Url" data-srcset="@ContentUrl@item.Cover_Url" data-src="@ContentUrl@item.Cover_Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@ContentUrl@item.Cover_Url" /></a></figure></li>
+                        </ul>
+                    }
+                    @*else
+                    {
+                        <img width="348" height="416" title="@item.Name" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="#" />
+                    }*@
+                </a>
+                <a class="caption" href="https://localhost:44382/Product/Details?id=@item.Id">@item.Name</a>
+            </div>
+            }
+        }
+    </section>
+
+
+
+    @*<div class="container">
+            <h2 class="section-title">Products</h2>
+            <figure class="wp-block-gallery columns-3 is-cropped">
+                <ul class="blocks-gallery-grid">
+                    @foreach (var item in Model.productGallery)
+                    {
+                        <li class='blocks-gallery-item'><figure><a href='@baseUrl@item.Url' data-fancybox="gallery" rel="nofollow"><img width='500' srcset="@baseUrl@item.Url" height='333' data-srcset="@baseUrl@item.Url" data-src="@baseUrl@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@item.Url" /></a></figure></li>
+                    }
+                </ul>
+            </figure>
+        </div>*@
+    @*<section id="inspirations" class="row">
+            @foreach (var item in Model.projectCategories)
+            {<div class="col-s">
+                    <a href="https://localhost:44382/Project?categoryId=@item.Category_id">
+                        <img width="500" height="500" title="Atlanta Residence" alt="Atlanta Residence Bluette Lilac Calacatta Lucina Pietra Grey" srcset="@item.Url" data-src="@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class=" ls-is-cached lazyloaded" src="@item.Url" sizes="(max-width: 500px) 100vw, 500px">
+                    </a>
+                    <a class="caption" href="@item.Url">@item.Name</a>
+                </div>
+            }
+        </section>*@
+
+
+
+    @*<h3 class="section-title">Design</h3>*@
+    @*<section id="inspirations" class="row">
+            @foreach (var item in Model.designCategories)
+            {
+                <div class="col-s">
+                    <a href="https://localhost:44382/Design?categoryId=@item.Category_id">
+                        <img width="500" height="500" title="@item.Name" alt="Atlanta Residence Bluette Lilac Calacatta Lucina Pietra Grey" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@item.Url" />
+                    </a>
+                    <a class="caption" href="#">@item.Name</a>
+                </div>
+            }
+
+        </section>*@
+
+
+
+    @*<section id="projects" class="row">
+            @foreach (var item in Model.designCategories)
+            {<div class="col-xs">
+                    <a href="https://localhost:44382/Design?categoryId=@item.Category_id">
+                        <img width="500" height="500" title="@item.Name" alt="Anamorphosis" srcset="@item.Url" data-src="@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class=" ls-is-cached lazyloaded" src="@item.Url" sizes="(max-width: 500px) 100vw, 500px">
+                    </a>
+                    <a class="caption" href="https://localhost:44382/Design?categoryId=@item.Category_id">@item.Name</a>
+                </div>
+            }
+        </section>*@
+
+
+</main>
+<ul class="footer-font marquee">
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href=""><strong>القدس</strong></a></li>
+    <li><a href=""><strong>الشام</strong></a></li>
+    <li><a href=""><strong>لبنان</strong></a></li>
+    <li><a href="#">الحجاز</a></li>
+    <li><a href="#">الرباط</a></li>
+    <li><a href="#">العراق</a></li>
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href="#"><strong>القدس</strong></a></li>
+    <li><a href="#"><strong>الشام</strong></a></li>
+    <li><a href="#"><strong>لبنان</strong></a></li>
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href=""><strong>القدس</strong></a></li>
+    <li><a href=""><strong>الشام</strong></a></li>
+    <li><a href=""><strong>لبنان</strong></a></li>
+    <li><a href="#">الحجاز</a></li>
+    <li><a href="#">الرباط</a></li>
+    <li><a href="#">العراق</a></li>
+    <li><a href="#"><strong>فلسطين</strong></a></li>
+    <li><a href=""><strong>القدس</strong></a></li>
+    <li><a href=""><strong>الشام</strong></a></li>
+    <li><a href=""><strong>لبنان</strong></a></li>
+    <li><a href="#">الحجاز</a></li>
+    <li><a href="#">الرباط</a></li>
+    <li><a href="#">العراق</a></li>
+</ul>

@@ -1,0 +1,118 @@
+﻿@model marble.ViewModels.HomePageModel
+
+@{
+    ViewBag.Title = "productCategories";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+    }
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+</style>
+
+<div class="card card-info rtl">
+    <div class="card-header" >
+        <h3 class="card-title line_2">التصنيفات</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th class="line_2">الاسم</th>
+          
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.productCategories)
+                {
+                    <tr>
+                        <td  class="header-font">@item.Name</td>
+                        <td style="text-align:left;direction:ltr">
+                            <div class="btn-group btn-group-sm">
+                                <a id="myImg" href="@baseUrl@item.Url" class="btn btn-info"><i class="fas fa-eye"></i></a>
+                                <a href="@Url.Action("DeleteProductCategory","Admin",new { id=item.Category_id})" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>

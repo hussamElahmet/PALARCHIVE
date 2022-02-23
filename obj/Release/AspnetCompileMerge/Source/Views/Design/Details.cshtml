@@ -1,0 +1,19 @@
+﻿@model marble.ViewModels.DesignsPageModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+}
+
+<div class="container">
+    <h2 class="section-title">Designs</h2>
+    <figure class="wp-block-gallery columns-3 is-cropped">
+        <ul class="blocks-gallery-grid">
+          @foreach (var item in Model.designGallery)
+            {
+                <li class='blocks-gallery-item'><figure><a href='@baseUrl@item.Url' data-fancybox="gallery" rel="nofollow"><img width='500' srcset="@baseUrl@item.Url" height='333' data-srcset="@baseUrl@item.Url" data-src="@baseUrl@item.Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@item.Url" /></a></figure></li>
+            }
+        </ul>
+    </figure>
+</div>

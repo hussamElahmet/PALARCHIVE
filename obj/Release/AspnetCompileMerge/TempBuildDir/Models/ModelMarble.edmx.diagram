@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c118b44cf714081bdc5ade00412fc83" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="MarbleModel.About" Width="1.5" PointX="12.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Category" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Contact" Width="1.5" PointX="13.125" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Design" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Product" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Product_Gallery" Width="1.5" PointX="9.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Project" Width="1.5" PointX="10.5" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarbleModel.Slider" Width="1.5" PointX="15.25" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="MarbleModel.FK__Design__Category__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Product__Categor__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Project__Categor__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Design__Cover_im__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Gallery__Product__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Product__Cover_i__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="MarbleModel.FK__Project__Cover_i__4BAC3F29" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MarbleModel.Design_Gallery" Width="1.5" PointX="15.875" PointY="1.375" />
+        <EntityTypeShape EntityType="MarbleModel.Project_Gallery" Width="1.5" PointX="9.25" PointY="0.5" />
+        <AssociationConnector Association="MarbleModel.FK__Design_Ga__Desig__52593CB8" />
+        <AssociationConnector Association="MarbleModel.FK__Project_G__Proje__4F7CD00D" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

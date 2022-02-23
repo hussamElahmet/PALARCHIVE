@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarbleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="About">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Details_En" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Category_id" />
+    </Key>
+    <Property Name="Category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Name_En" Type="nvarchar(max)" />
+    <Property Name="Url" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Map" Type="nvarchar(max)" />
+    <Property Name="Country" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Contact_Form">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="email" />
+      <PropertyRef Name="message" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="message" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Design">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Category_id" Type="int" />
+    <Property Name="Cover_image_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Design_Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Design_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Name_En" Type="nvarchar(max)" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Details_En" Type="nvarchar(max)" />
+    <Property Name="Category_id" Type="int" />
+    <Property Name="Cover_image_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Product_Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Product_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Details" Type="nvarchar(max)" />
+    <Property Name="Category_id" Type="int" />
+    <Property Name="Cover_image_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Project_Gallery">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="nvarchar(max)" />
+    <Property Name="Project_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Slider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Url" Type="varchar(max)" Nullable="false" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
+  <Association Name="FK__Design__Category__412EB0B6">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Design" Type="Self.Design" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category_id" />
+      </Principal>
+      <Dependent Role="Design">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Design__Cover_im__4CA06362">
+    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="0..1" />
+    <End Role="Design" Type="Self.Design" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Gallery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Design">
+        <PropertyRef Name="Cover_image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Design_Ga__Desig__52593CB8">
+    <End Role="Design" Type="Self.Design" Multiplicity="0..1" />
+    <End Role="Design_Gallery" Type="Self.Design_Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Design">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Design_Gallery">
+        <PropertyRef Name="Design_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Gallery__Product__47DBAE45">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product_Gallery">
+        <PropertyRef Name="Product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Categor__3B75D760">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category_id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Cover_i__4AB81AF0">
+    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Gallery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="Cover_image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__Categor__3E52440B">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category_id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Category_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project__Cover_i__4BAC3F29">
+    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="0..1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_Gallery">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="Cover_image_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project_G__Proje__4F7CD00D">
+    <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
+    <End Role="Project_Gallery" Type="Self.Project_Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project_Gallery">
+        <PropertyRef Name="Project_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MarbleModelStoreContainer">
+    <EntitySet Name="About" EntityType="Self.About" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Design" EntityType="Self.Design" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Design_Gallery" EntityType="Self.Design_Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_Gallery" EntityType="Self.Product_Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project_Gallery" EntityType="Self.Project_Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact_Form" EntityType="Self.Contact_Form" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Contact_Form].[id] AS [id], 
+    [Contact_Form].[name] AS [name], 
+    [Contact_Form].[email] AS [email], 
+    [Contact_Form].[message] AS [message]
+    FROM [dbo].[Contact_Form] AS [Contact_Form]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Design__Category__412EB0B6" Association="Self.FK__Design__Category__412EB0B6">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Design" EntitySet="Design" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Design__Cover_im__4CA06362" Association="Self.FK__Design__Cover_im__4CA06362">
+      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
+      <End Role="Design" EntitySet="Design" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Design_Ga__Desig__52593CB8" Association="Self.FK__Design_Ga__Desig__52593CB8">
+      <End Role="Design" EntitySet="Design" />
+      <End Role="Design_Gallery" EntitySet="Design_Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Gallery__Product__47DBAE45" Association="Self.FK__Gallery__Product__47DBAE45">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Categor__3B75D760" Association="Self.FK__Product__Categor__3B75D760">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Cover_i__4AB81AF0" Association="Self.FK__Product__Cover_i__4AB81AF0">
+      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__Categor__3E52440B" Association="Self.FK__Project__Categor__3E52440B">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project__Cover_i__4BAC3F29" Association="Self.FK__Project__Cover_i__4BAC3F29">
+      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project_G__Proje__4F7CD00D" Association="Self.FK__Project_G__Proje__4F7CD00D">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Project_Gallery" EntitySet="Project_Gallery" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

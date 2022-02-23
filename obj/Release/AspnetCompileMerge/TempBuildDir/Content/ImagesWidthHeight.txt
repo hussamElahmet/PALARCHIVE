@@ -1,0 +1,9 @@
+﻿Width * Height
+Product categories : 196 * 196 
+Product photo      : 253 * 253
+Project categories : 348 * 195.58
+Project photo	   : 253 * 142.175
+Design categories  : 253 * 142.175
+Design photo	   : 253 * 142.175
+
+

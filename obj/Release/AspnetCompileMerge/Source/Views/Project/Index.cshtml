@@ -1,0 +1,61 @@
+﻿@model marble.ViewModels.ProjectsPageModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+}
+
+<main>
+    <div class="row">
+        <aside class="col-xs">
+            <h1>Natural Stone</h1>
+            <div id="desktop-filter">
+                <span>Filter by Type</span>
+                <ul id="menu-products" class="menu">
+                    @foreach (var item in Model.projectCategories)
+                    {
+                        <li id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761"><a href="https://localhost:44382/Project?categoryId=@item.Category_id">@item.Name</a></li>
+                    }
+                </ul>
+
+            </div>
+        </aside>
+        <div class="col-xl">
+            <div class="row">
+                @foreach (var item in Model.projects)
+                {
+                    <div class="col-s">
+                        <a href="https://localhost:44382/Project/Details?id=@item.Id">
+                            @if (item.Cover_Url != null)
+                            {
+                                <img width="500" height="500" title="@item.Name" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@item.Cover_Url" />
+                            }
+                            else
+                            {
+                                <img width="500" height="500" title="@item.Name" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="#" />
+                            }
+                        </a>
+                        <a class="caption" href="https://localhost:44382/Project/Details?id=@item.Id">@item.Name</a>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+        <aside id="mobile-filter" class="col-s">
+            <div class="dropdown_list">
+                <span class="dropdown">Filter by Type</span>
+                <ul id="menu-products-1" class="drop">
+                    @foreach (var item in Model.projectCategories)
+                    {
+                        <li id="menu-item-9761" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9761"><a href="https://localhost:44382/Project?categoryId=@item.Category_id">@item.Name</a></li>
+                    }
+
+                </ul>
+            </div>
+
+        </aside>
+    </div>
+</main>

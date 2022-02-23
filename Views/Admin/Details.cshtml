@@ -1,0 +1,136 @@
+﻿@model marble.ViewModels.ProductsPageModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    baseUrl = baseUrl + "Content/Upload/";
+}
+<style>
+    .header-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .footer-font {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+    }
+
+    .header-font-bold {
+        font-family: 'Almarai', sans-serif;
+        text-align: right;
+        direction: rtl;
+    }
+
+    .line_1 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-size: larger;
+    }
+
+    .line_2 {
+        font-family: 'Cairo', sans-serif;
+        text-align: right;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .rtl {
+        direction: rtl;
+        text-align: right;
+    }
+
+    .text-font {
+        font-family: GE-Flow-Regular;
+    }
+</style>
+<div class="card card-info rtl">
+    <div class="card-header">
+        <h3 class="card-title line_2 ">وثائق تم نشرها</h3>
+
+        <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+            </button>
+        </div>
+    </div>
+    <div class="card-body p-0 header-font">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>اسم الوثيقة</th>
+                    <th>التفاصيل</th>
+                    <th>التصنيف</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.products)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Details</td>
+                        <td>@Model.productCategories.Where(x => x.Category_id == item.Category_id).FirstOrDefault().Name</td>
+                        <td class="text-right m-3 p-3 align-middle">
+                            <div class="btn-group btn-group-sm">
+                                <ul class="blocks-gallery-grid" style="list-style:none">
+                                    <li class='blocks-gallery-item '>
+                                        <figure>
+                                            @*<a id="myImg" href="@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url" data-fancybox="gallery" rel="nofollow"><i class="fas fa-eye"></i></a>*@
+                                            <a href='@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url' data-fancybox="gallery" rel="nofollow">
+                                                <img style="width:200px;height:200px" srcset="@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url" data-srcset="@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url" data-src="@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@baseUrl@Model.productGallery.Where(x=>x.Product_id==item.Id && x.Id==item.Cover_image_id).FirstOrDefault().Url" />
+                                                </a>
+                                        </figure>
+                                    </li>
+                                </ul>
+                                <a style="height:35px" href="@Url.Action("DeleteProduct","Admin",new { id=item.Id})" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                            </div>
+
+                        </td>
+                    </tr>
+                }
+
+                @*<ul class="blocks-gallery-grid">
+                    <li class='blocks-gallery-item'>
+                    <figure>
+                        <a href='@ContentUrl@item.Cover_Url' data-fancybox="gallery" rel="nofollow">
+                        <img style="width:348px;height:416px" srcset="@ContentUrl@item.Cover_Url" data-srcset="@ContentUrl@item.Cover_Url" data-src="@ContentUrl@item.Cover_Url" data-sizes="(max-width: 500px) 100vw, 500px" class="lazyload" src="@ContentUrl@item.Cover_Url" />
+                            </a>
+                        </figure></li>
+                </ul>*@
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("myImg");
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+</script>

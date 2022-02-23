@@ -1,0 +1,170 @@
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\marble.U.dll.config
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\marble.U.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\marble.U.pdb
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csc.exe
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csc.exe.config
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csc.rsp
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csi.exe
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csi.exe.config
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\csi.rsp
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.Managed.Core.targets
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.AppContext.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Collections.Immutable.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Console.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Globalization.Calendars.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.IO.Compression.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.IO.FileSystem.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Net.Http.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Net.Sockets.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Reflection.Metadata.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.ValueTuple.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Xml.XmlDocument.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Xml.XPath.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\vbc.exe
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\vbc.exe.config
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\vbc.rsp
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\VBCSCompiler.exe
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\roslyn\VBCSCompiler.exe.config
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Antlr3.Runtime.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\EntityFramework.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\EntityFramework.SqlServer.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Microsoft.Web.Infrastructure.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Newtonsoft.Json.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Helpers.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Mvc.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Optimization.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Razor.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.Deployment.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.Razor.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\WebGrease.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\EntityFramework.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\EntityFramework.SqlServer.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Helpers.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Mvc.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Optimization.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.Razor.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.Deployment.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\System.Web.WebPages.Razor.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Newtonsoft.Json.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Antlr3.Runtime.pdb
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\obj\Release\marble.csproj.AssemblyReference.cache
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\obj\Release\marble.csproj.CoreCompileInputs.cache
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\obj\Release\marble.csproj.CopyComplete
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\obj\Release\marble.U.dll
+E:\important files\MY ALL PROJECTS\project marble\marble\marble\obj\Release\marble.U.pdb
+C:\project marble\marble\marble\bin\marble.U.dll.config
+C:\project marble\marble\marble\bin\marble.U.dll
+C:\project marble\marble\marble\bin\marble.U.pdb
+C:\project marble\marble\marble\bin\roslyn\csc.exe
+C:\project marble\marble\marble\bin\roslyn\csc.exe.config
+C:\project marble\marble\marble\bin\roslyn\csc.rsp
+C:\project marble\marble\marble\bin\roslyn\csi.exe
+C:\project marble\marble\marble\bin\roslyn\csi.exe.config
+C:\project marble\marble\marble\bin\roslyn\csi.rsp
+C:\project marble\marble\marble\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\project marble\marble\marble\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\project marble\marble\marble\bin\roslyn\Microsoft.Managed.Core.targets
+C:\project marble\marble\marble\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\project marble\marble\marble\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\project marble\marble\marble\bin\roslyn\System.AppContext.dll
+C:\project marble\marble\marble\bin\roslyn\System.Collections.Immutable.dll
+C:\project marble\marble\marble\bin\roslyn\System.Console.dll
+C:\project marble\marble\marble\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\project marble\marble\marble\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\project marble\marble\marble\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\project marble\marble\marble\bin\roslyn\System.Globalization.Calendars.dll
+C:\project marble\marble\marble\bin\roslyn\System.IO.Compression.dll
+C:\project marble\marble\marble\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\project marble\marble\marble\bin\roslyn\System.IO.FileSystem.dll
+C:\project marble\marble\marble\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\project marble\marble\marble\bin\roslyn\System.Net.Http.dll
+C:\project marble\marble\marble\bin\roslyn\System.Net.Sockets.dll
+C:\project marble\marble\marble\bin\roslyn\System.Reflection.Metadata.dll
+C:\project marble\marble\marble\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\project marble\marble\marble\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\project marble\marble\marble\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\project marble\marble\marble\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\project marble\marble\marble\bin\roslyn\System.ValueTuple.dll
+C:\project marble\marble\marble\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\project marble\marble\marble\bin\roslyn\System.Xml.XmlDocument.dll
+C:\project marble\marble\marble\bin\roslyn\System.Xml.XPath.dll
+C:\project marble\marble\marble\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\project marble\marble\marble\bin\roslyn\vbc.exe
+C:\project marble\marble\marble\bin\roslyn\vbc.exe.config
+C:\project marble\marble\marble\bin\roslyn\vbc.rsp
+C:\project marble\marble\marble\bin\roslyn\VBCSCompiler.exe
+C:\project marble\marble\marble\bin\roslyn\VBCSCompiler.exe.config
+C:\project marble\marble\marble\bin\Antlr3.Runtime.dll
+C:\project marble\marble\marble\bin\EntityFramework.dll
+C:\project marble\marble\marble\bin\EntityFramework.SqlServer.dll
+C:\project marble\marble\marble\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\project marble\marble\marble\bin\Microsoft.Web.Infrastructure.dll
+C:\project marble\marble\marble\bin\Newtonsoft.Json.dll
+C:\project marble\marble\marble\bin\System.Web.Helpers.dll
+C:\project marble\marble\marble\bin\System.Web.Mvc.dll
+C:\project marble\marble\marble\bin\System.Web.Optimization.dll
+C:\project marble\marble\marble\bin\System.Web.Razor.dll
+C:\project marble\marble\marble\bin\System.Web.WebPages.Deployment.dll
+C:\project marble\marble\marble\bin\System.Web.WebPages.dll
+C:\project marble\marble\marble\bin\System.Web.WebPages.Razor.dll
+C:\project marble\marble\marble\bin\WebGrease.dll
+C:\project marble\marble\marble\bin\EntityFramework.xml
+C:\project marble\marble\marble\bin\EntityFramework.SqlServer.xml
+C:\project marble\marble\marble\bin\System.Web.Helpers.xml
+C:\project marble\marble\marble\bin\System.Web.Mvc.xml
+C:\project marble\marble\marble\bin\System.Web.Optimization.xml
+C:\project marble\marble\marble\bin\System.Web.Razor.xml
+C:\project marble\marble\marble\bin\System.Web.WebPages.xml
+C:\project marble\marble\marble\bin\System.Web.WebPages.Deployment.xml
+C:\project marble\marble\marble\bin\System.Web.WebPages.Razor.xml
+C:\project marble\marble\marble\bin\Newtonsoft.Json.xml
+C:\project marble\marble\marble\bin\Antlr3.Runtime.pdb
+C:\project marble\marble\marble\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\project marble\marble\marble\obj\Release\marble.Resources.Resourcen.resources
+C:\project marble\marble\marble\obj\Release\marble.Resources.Resource.resources
+C:\project marble\marble\marble\obj\Release\marble.csproj.GenerateResource.cache
+C:\project marble\marble\marble\obj\Release\marble.csproj.CoreCompileInputs.cache
+C:\project marble\marble\marble\obj\Release\marble.csproj.CopyComplete
+C:\project marble\marble\marble\obj\Release\marble.U.dll
+C:\project marble\marble\marble\obj\Release\marble.U.pdb
+F:\Backups\pal_archive_2\obj\Release\marble.U.dll
+F:\Backups\pal_archive_2\obj\Release\marble.U.pdb

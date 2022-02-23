@@ -1,0 +1,183 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string siteUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
+    string ContentUrl = baseUrl + "Content/Upload/";
+}
+
+<style>
+        .header-font {
+            font-family: 'Cairo', sans-serif;
+            text-align: center;
+            direction: rtl;
+        }
+
+        .footer-font {
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
+        }
+
+        .navbar-font {
+            font-family: 'Almarai', sans-serif;
+            /*        text-align: center;
+    */ direction: rtl;
+        }
+
+        .line_1 {
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
+            font-size: larger;
+        }
+
+        .line_2 {
+            font-family: 'Cairo', sans-serif;
+            text-align: right;
+            font-weight: bolder;
+            font-size: larger;
+        }
+</style>
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/Content/style.css" />
+    <title>Archive Web</title>
+    <meta name="title" content="W">
+    <meta name="description" content="Here are natural stone varieties for your elegant and luxurious projects. Do not hesitate to contact us for marble prices.">
+    <link rel="alternate" hreflang="tr" href="~/" />
+    <link rel="alternate" hreflang="x-default" href="~/" />
+    <link rel='stylesheet' id='contact-form-7-css' href='~/Content/style_contact_form.css' type='text/css' media='all' />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Cairo:wght@300;400&display=swap" rel="stylesheet">
+    <script>
+        document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+    <style>
+        .no-js img.lazyload {
+            display: none;
+        }
+
+        figure.wp-block-image img.lazyloading {
+            min-width: 150px;
+        }
+
+        .lazyload, .lazyloading {
+            opacity: 0;
+        }
+
+        .lazyloaded {
+            opacity: 1;
+            transition: opacity 400ms;
+            transition-delay: 0ms;
+        }
+    </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-42931240-14"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-42931240-14');</script>
+
+</head>
+
+<body class="home blog">
+    <div style="margin-bottom: 20px;"></div>
+    @RenderBody()
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col pr0">
+                    @*<img class="search-button" src="https://temmermarble.com/wp-content/themes/temmer/assets/img/search.svg" width="20" height="20" alt="Marble, Granite, Onyx, Limestone and Travertine" />*@
+
+                </div>
+                <div class="col center">
+                    @* <h1>  *@
+                    <a class="logotype" href="#" rel="home" title="Archive">
+                        <img alt="Archive" data-src="https://localhost:44382/Content/Upload/km.png" class="lazyload" src="https://localhost:44382/Content/Upload/km.png" />
+                    </a>
+                    @*</h1>*@
+                </div>
+                <div class="col" style="margin-top: auto; ">
+                    <div class="hamburger"><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="container">
+            <ul id="menu-main" class="menu navbar-font">
+                @*<li id="menu-item-9784" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9784"><a href="~/">الصفحة الرئيسية</a></li>*@
+                <li id="menu-item-9784" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9784"><a href="~/">@Resources.Global.Home</a></li>
+                <li id="menu-item-9784" class="menu-item menu-item-type-taxonomy menu-item-object-product-category menu-item-9784"><a href="~/Product">@Resources.Global.Archives</a></li>
+                <li id="menu-item-9788" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9788"><a href="~/About/About">@Resources.Global.AboutUs</a></li>
+                <li id="menu-item-9787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9787"><a href="~/Contact/Contact">@Resources.Global.ContactUs</a></li>
+
+
+                @foreach (var i in marble.LanguageMang.AvailableLanguages)
+                {
+                    <li id="menu-item-9789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-9787">
+                        @Html.ActionLink(i.LanguageFullName, "ChangeLanguage", "Home", new { lang = i.LanguageCultureName }, null) <text> </text>
+                    </li>
+                }
+
+            </ul>
+        </div>
+    </nav>
+    <div id="search">
+        <div class="container">
+            <form role="search" method="get" id="searchform" class="searchform" action="#">
+                <input placeholder="Type here and hit enter to search" type="text" value="" name="s" id="s" />
+            </form>
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="container">
+            <ul class="footer-credit" style=" margin-top: 0px; padding-top: 0px; margin-top: 150px;">
+                <li>2022 © Palestinian Archive</li>
+                <li><a href="#">Privacy & Cookie Policy</a></li>
+            </ul>
+        </div>
+        @*<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>*@
+
+
+        <script type='text/javascript' src='~/Content/dist/js/smush-lazy-load.min.js?ver=3.7.0' id='smush-lazy-load-js'></script>
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+        <script src="~/Content/dist/js/jquery.min.js?ver=2023.12.10"></script>
+        <script src="~/Content/dist/js/swiper-bundle.min.js"></script>
+        <script>
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                loop: true,
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+        <script>
+            $.get("https://freegeoip.app/json/", function (response) {
+                var country = response.country_code;
+                if (country == 'TR') document.getElementById('langs').style.display = "inline-block";
+            }, "jsonp");
+            $.get("https://freegeoip.app/json/", function (response) {
+                var country = response.country_code;
+                if (country == 'TR') document.getElementById('menu-item-10167').style.display = "none";
+                if (country == 'TR') document.getElementById('menu-item-11925').style.display = "inline-block";
+            }, "jsonp");
+            $.get("https://freegeoip.app/json/", function (response) {
+                var country = response.country_code;
+                if (country == 'US' || country == 'CA' || country == 'UK' || country == 'TR') document.getElementById(country).style.display = "block";
+            }, "jsonp");
+            $.get("https://freegeoip.app/json/", function (response) {
+                var country = response.country_code;
+                if (country !== 'US') document.getElementById('sliderglb').style.display = "block";
+                if (country == 'US') document.getElementById('slideratl').style.display = "block";
+            }, "jsonp");
+        </script>
+    </footer>
+</body>
+</html>
