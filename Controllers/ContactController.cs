@@ -53,7 +53,7 @@ namespace marble.Controllers
                 AlternateView avHtml = AlternateView.CreateAlternateViewFromString(title, Encoding.UTF8, MediaTypeNames.Text.Html);
 
                 message.AlternateViews.Add(avHtml);
-                SmtpClient client = new SmtpClient("srvm11.trwww.com", 465);   
+                SmtpClient client = new SmtpClient("srvm11.trwww.com", 587);   
                 System.Net.NetworkCredential basicCredential1 = new System.Net.NetworkCredential("info@palarchive.info", "Ahmed@#1234");
                 client.EnableSsl = true;
                 client.UseDefaultCredentials = false;

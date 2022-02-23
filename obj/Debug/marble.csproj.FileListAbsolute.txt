@@ -179,7 +179,6 @@ F:\Backups\pal_4\bin\marble.U.dll
 F:\Backups\pal_4\bin\marble.U.pdb
 F:\Backups\pal_4\bin\ar\marble.U.resources.dll
 F:\Backups\pal_4\bin\Newtonsoft.Json.dll
-F:\Backups\pal_4\obj\Debug\marble.csproj.AssemblyReference.cache
 F:\Backups\pal_4\obj\Debug\marble.Resources.Global.resources
 F:\Backups\pal_4\obj\Debug\marble.Resources.Global.ar.resources
 F:\Backups\pal_4\obj\Debug\marble.csproj.GenerateResource.cache
