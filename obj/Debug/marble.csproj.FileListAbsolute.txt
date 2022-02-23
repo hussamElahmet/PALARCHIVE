@@ -188,3 +188,4 @@ F:\Backups\pal_4\obj\Debug\marble.csproj.CopyComplete
 F:\Backups\pal_4\obj\Debug\marble.U.dll
 F:\Backups\pal_4\obj\Debug\marble.U.pdb
 F:\Backups\pal_4\bin\Newtonsoft.Json.xml
+F:\Backups\pal_4\obj\Debug\marble.csproj.AssemblyReference.cache

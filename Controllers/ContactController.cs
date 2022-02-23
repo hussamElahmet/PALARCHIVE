@@ -49,7 +49,7 @@ namespace marble.Controllers
                     "<h2 style=\"text-align: right;\">   الاسم : {0}  </h2><br />" +
                     "<h2 style=\"text-align: right;direction: rtl;\">   الأيميل : {1}  </h2><br />" +
                     "<h2 style=\"text-align: right;direction: rtl;\">   الرسالة : {2}  </h2><br />" +
-                    "</body></html>", param.name,from,param.message);
+                    "</body></html>", param.name, to, param.message);
                 AlternateView avHtml = AlternateView.CreateAlternateViewFromString(title, Encoding.UTF8, MediaTypeNames.Text.Html);
 
                 message.AlternateViews.Add(avHtml);
