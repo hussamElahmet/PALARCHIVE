@@ -1,0 +1,57 @@
+﻿@model marble.Models.User
+    @{
+    ViewBag.Title = "Login";
+    Layout = "";
+}
+
+<body>
+    <script src="https://kit.fontawesome.com/46cf3b98b0.js"></script>
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-font-face.min.css" media="all">
+    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
+    <link rel="stylesheet" href="~/Content/login.css" />
+
+    <div class='design'>
+        <div class='circle md-1'></div>
+        <div class='circle md-2 trans-1'></div>
+        <div class='circle md-3 trans-2'></div>
+        <div class='circle md-4'></div>
+        <div class='circle md-5'></div>
+        <div class='circle md-6 trans-1'></div>
+        <div class='circle md-7 trans-2'></div>
+    </div>
+    <div class='form'>
+        <div class='form-margin'>
+            @using (Html.BeginForm("Login", "Security", FormMethod.Post))
+            {
+        <div class='form-text'>
+            <h1>Hi there!</h1>
+            <p>Log into your account to get started</p>
+        </div>
+
+            <div class='input-row'>
+                <h2>Username</h2>
+                <div class='input-flex'>
+                    <div><i class="far fa-user"></i></div>
+                    <input type='text' name="UserName" placeholder='Username' required>
+                </div>
+            </div>
+
+            <div class='input-row'>
+                <h2>Password</h2>
+                <div class='input-flex'>
+                    <div><i class="fas fa-lock"></i></div>
+                    <input name="Pass" type='password' placeholder='Password' required>
+                </div>
+            </div>
+
+            <div class='login-extra'>
+                <button type='submit'>Sign in</button>
+                @*<a href='/'>Forgot password?</a>*@
+            </div>
+
+            }
+        </div>
+    </div>
+    <p class='copyright'>© AvaerianDev 2019. All rights reserved.</p>
+</body>

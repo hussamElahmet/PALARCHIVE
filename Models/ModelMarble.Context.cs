@@ -36,5 +36,6 @@ namespace marble.Models
         public virtual DbSet<Design_Gallery> Design_Gallery { get; set; }
         public virtual DbSet<Project_Gallery> Project_Gallery { get; set; }
         public virtual DbSet<Contact_Form> Contact_Form { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

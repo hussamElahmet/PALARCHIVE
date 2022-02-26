@@ -21,6 +21,7 @@ namespace marble.Context
             throw new UnintentionalCodeFirstException();
         }
         public DbSet<Slider> Sliders { set; get; }
+        public DbSet<User> User { set; get; }
         public DbSet<Contact_Form> ContactForm { set; get; }
         public DbSet<Category> Categories { set; get; }
         public DbSet<About> About { set; get; }

@@ -22,6 +22,7 @@ namespace marble.Controllers
             context = new MarbleEntityFrameWork();
         }
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -29,6 +30,8 @@ namespace marble.Controllers
 
         #region PRODUCT 
         // GET: Products
+       
+        [Authorize(Roles = "A")]
         public ActionResult Details()
         {
             ProductsPageModel model = new ProductsPageModel();
@@ -37,12 +40,16 @@ namespace marble.Controllers
             model.productGallery = context.ProductGalleries.ToList();
             return View(model);
         }
+       
+        [Authorize(Roles = "A")]
         public ActionResult Add()
         {
             ProductsPageModel result = new ProductsPageModel();
             result.productCategories = context.Categories.Where(x => x.Type == 1).ToList();
             return View(result);
         }
+       
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult Add(paramAdd param)
         {
@@ -99,8 +106,9 @@ namespace marble.Controllers
             result2.productCategories = context.Categories.Where(x => x.Type == 1).ToList();
             return View(result2);
         }
-
-         public ActionResult DeleteProduct(int id)
+       
+        [Authorize(Roles = "A")]
+        public ActionResult DeleteProduct(int id)
         {
             Product product = new Product();
             product = context.Products.Where(x => x.Id == id).FirstOrDefault();
@@ -209,6 +217,7 @@ namespace marble.Controllers
 
         #region Designs 
         // GET: Designs
+        [Authorize(Roles = "A")]
         public ActionResult DesignDetails()
         {
             DesignsPageModel model = new DesignsPageModel();
@@ -217,12 +226,14 @@ namespace marble.Controllers
             model.designGallery = context.DesignGalleries.ToList();
             return View(model);
         }
+        [Authorize(Roles = "A")]
         public ActionResult DesignAdd()
         {
             DesignsPageModel result = new DesignsPageModel();
             result.designCategories = context.Categories.Where(x => x.Type == 3).ToList();
             return View(result);
         }
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult DesignAdd(paramAdd param)
         {
@@ -278,7 +289,7 @@ namespace marble.Controllers
             result2.designCategories = context.Categories.Where(x => x.Type == 3).ToList();
             return View(result2);
         }
-
+        [Authorize(Roles = "A")]
         public ActionResult DeleteDesign(int id)
         {
             Design Design = new Design();
@@ -297,12 +308,14 @@ namespace marble.Controllers
 
 
         #region About 
+        [Authorize(Roles = "A")]
         public ActionResult About()
         {
             About about = new About();
             about = context.About.First();
             return View(about);
         }
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult About(paramAbout param)
         {
@@ -348,11 +361,13 @@ namespace marble.Controllers
 
 
         #region Sliders
+        [Authorize(Roles = "A")]
         public ActionResult SliderAdd()
         {
             Slider result = new Slider();
             return View(result);
         }
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult SliderAdd(paramAdd param)
         {
@@ -383,6 +398,7 @@ namespace marble.Controllers
             return RedirectToAction("SliderAdd");
         }
 
+        [Authorize(Roles = "A")]
         public ActionResult SliderDetails()
         {
             HomePageModel result = new HomePageModel();
@@ -392,6 +408,7 @@ namespace marble.Controllers
         }
 
 
+        [Authorize(Roles = "A")]
         public ActionResult DeleteSlider(int id)
         {
             Slider slider = new Slider();
@@ -403,6 +420,7 @@ namespace marble.Controllers
         }
         #endregion
 
+        [Authorize(Roles = "A")]
         #region product-category
         public ActionResult productCategories()
         {
@@ -411,6 +429,7 @@ namespace marble.Controllers
             return View(result);
         }
 
+        [Authorize(Roles = "A")]
         public ActionResult DeleteProductCategory(int id)
         {
             List<Product> products = context.Products.Where(x => x.Category_id == id).ToList();
@@ -433,11 +452,13 @@ namespace marble.Controllers
         }
 
 
+        [Authorize(Roles = "A")]
         public ActionResult CategoryAdd()
         {
             CategoryProductPageModel result = new CategoryProductPageModel();
             return View(result);
         }
+        [Authorize(Roles = "A")]
         [HttpPost]
         public ActionResult CategoryAdd(paramCategoryAdd param)
         {

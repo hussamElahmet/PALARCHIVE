@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="MarbleModel.Project_Gallery" Width="1.5" PointX="9.25" PointY="0.5" />
         <AssociationConnector Association="MarbleModel.FK__Design_Ga__Desig__52593CB8" />
         <AssociationConnector Association="MarbleModel.FK__Project_G__Proje__4F7CD00D" />
+        <EntityTypeShape EntityType="MarbleModel.User" Width="1.5" PointX="5.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

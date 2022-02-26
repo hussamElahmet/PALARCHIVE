@@ -15,6 +15,7 @@ namespace marble
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            //GlobalFilters.Filters.Add(new AuthorizeAttribute());
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

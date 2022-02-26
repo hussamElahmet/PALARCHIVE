@@ -108,6 +108,15 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
     <Property Name="Url" Type="varchar(max)" Nullable="false" />
     <Property Name="Order" Type="int" />
   </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Pass" Type="nvarchar(max)" />
+    <Property Name="Role" Type="nvarchar(max)" />
+  </EntityType>
   <Association Name="FK__Design__Category__412EB0B6">
     <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
     <End Role="Design" Type="Self.Design" Multiplicity="*" />
@@ -117,18 +126,6 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
       </Principal>
       <Dependent Role="Design">
         <PropertyRef Name="Category_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Design__Cover_im__4CA06362">
-    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="0..1" />
-    <End Role="Design" Type="Self.Design" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product_Gallery">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Design">
-        <PropertyRef Name="Cover_image_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -192,18 +189,6 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Project__Cover_i__4BAC3F29">
-    <End Role="Product_Gallery" Type="Self.Product_Gallery" Multiplicity="0..1" />
-    <End Role="Project" Type="Self.Project" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Product_Gallery">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Project">
-        <PropertyRef Name="Cover_image_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Project_G__Proje__4F7CD00D">
     <End Role="Project" Type="Self.Project" Multiplicity="0..1" />
     <End Role="Project_Gallery" Type="Self.Project_Gallery" Multiplicity="*" />
@@ -227,6 +212,7 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
     <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Project_Gallery" EntityType="Self.Project_Gallery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contact_Form" EntityType="Self.Contact_Form" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [Contact_Form].[id] AS [id], 
@@ -237,10 +223,6 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
     </EntitySet>
     <AssociationSet Name="FK__Design__Category__412EB0B6" Association="Self.FK__Design__Category__412EB0B6">
       <End Role="Category" EntitySet="Category" />
-      <End Role="Design" EntitySet="Design" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Design__Cover_im__4CA06362" Association="Self.FK__Design__Cover_im__4CA06362">
-      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
       <End Role="Design" EntitySet="Design" />
     </AssociationSet>
     <AssociationSet Name="FK__Design_Ga__Desig__52593CB8" Association="Self.FK__Design_Ga__Desig__52593CB8">
@@ -261,10 +243,6 @@ warning 6002: The table/view 'Marble.dbo.Contact_Form' does not have a primary k
     </AssociationSet>
     <AssociationSet Name="FK__Project__Categor__3E52440B" Association="Self.FK__Project__Categor__3E52440B">
       <End Role="Category" EntitySet="Category" />
-      <End Role="Project" EntitySet="Project" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Project__Cover_i__4BAC3F29" Association="Self.FK__Project__Cover_i__4BAC3F29">
-      <End Role="Product_Gallery" EntitySet="Product_Gallery" />
       <End Role="Project" EntitySet="Project" />
     </AssociationSet>
     <AssociationSet Name="FK__Project_G__Proje__4F7CD00D" Association="Self.FK__Project_G__Proje__4F7CD00D">
